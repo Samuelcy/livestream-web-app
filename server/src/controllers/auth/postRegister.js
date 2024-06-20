@@ -8,7 +8,7 @@ export const postRegister = async (req, res) => {
         const userExists = await User.exists({ email })
 
         if (userExists) {
-            return res.stats(409).send("Email already in use");
+            return res.status(409).send("Email already in use");
         }
 
         const encryptedPassword = await bcrypt.hash(password, 10);
