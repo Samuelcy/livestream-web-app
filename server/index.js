@@ -2,6 +2,7 @@ import express from 'express'
 import http from 'http'
 import cors from 'cors'
 import dotenv from 'dotenv'
+import authRoutes from '../src/routes/authRoutes.js'
 
 dotenv.config();
 
@@ -16,6 +17,11 @@ app.use(cors());
 app.get('/', (req,res) => {
     return res.send('Hello your server is here')
 })
+
+app.use('/api/auth', (authRoutes) => {
+    return res.send('Hello your server is here')
+})
+
 
 const server = http.createServer(app)
 
