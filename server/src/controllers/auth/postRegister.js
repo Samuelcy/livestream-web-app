@@ -22,7 +22,7 @@ export const postRegister = async (req, res) => {
         // Create JWT token, encrypt user detail, add secret,
         const token = jwt.sign({
             userId: user._id,
-            email,
+            email: user.email,
         },
             process.env.TOKEN_KEY,
             {
@@ -33,7 +33,7 @@ export const postRegister = async (req, res) => {
         // Send response back user data and jwt
         return res.status(201).json({
             userDetails: {
-                email,
+                email: user.email,
                 username,
                 token,
             }
@@ -43,6 +43,4 @@ export const postRegister = async (req, res) => {
         console.log(err)
         return res.status(500).send('Error occured.')
     }
-
-    return res.send("User is added to database");
 }
