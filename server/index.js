@@ -22,7 +22,6 @@ app.use('/api/auth', (authRoutes) => {
     return res.send('Hello your server is here')
 })
 
-
 const server = http.createServer(app)
 
 server.listen(PORT,() => {
