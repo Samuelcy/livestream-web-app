@@ -1,9 +1,5 @@
-function App() {
+export const App = ({ children }) => {
   return (
-    <div className="App">
-      Hello World
-    </div>
+    <>{children}</>
   );
 }
-
-export default App;
