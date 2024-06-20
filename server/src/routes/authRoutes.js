@@ -1,9 +1,9 @@
-import express from 'express';
-import { postLogin, postRegister } from '../controllers/controllers.js';
-import Joi from 'joi';
-import ExpressValidation from "express-joi-validation";
+import express from 'express'
+import Joi from 'joi'
+import ExpressValidation from "express-joi-validation"
+import { postLogin, postRegister } from '../controllers/controllers.js'
 
-const router = express.Router()
+const router = express.Router();
 
 const validator = ExpressValidation.createValidator({});
 
@@ -18,15 +18,7 @@ const loginSchema = Joi.object({
     email: Joi.string().email().required(),
 });
 
-// router.post('/register', (req, res) => {
-//     return res.send("Register route");
-// });
-
 router.post("/register", validator.body(registerSchema), postRegister);
-
-// router.post('/login', (req, res) => {
-//     return res.send("Login route");
-// });
 
 router.post("/login", validator.body(loginSchema), postLogin);
 
