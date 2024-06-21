@@ -1,8 +1,9 @@
 import React from "react";
+import { Logo } from "./Logo";
 
 export const Login = ({ switchAuthHandler }) => {
     return <div className="login-container">
-        <p>Logo</p>
+        <Logo text={'Login to Stream'} />
         <form className="auth-form">
             Form
         </form>
