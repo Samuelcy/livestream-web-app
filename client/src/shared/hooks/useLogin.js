@@ -27,7 +27,7 @@ export const useLogin = () => {
         const { userDetails } = response.data;
 
         // Token in the memory of the browser
-        localStorage.setItem('user', userDetails)
+        localStorage.setItem('user', JSON.stringify(userDetails))
 
         navigate('/')
     }
