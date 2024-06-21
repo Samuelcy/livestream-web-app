@@ -27,8 +27,6 @@ export const Login = ({ switchAuthHandler }) => {
         }));
     }
 
-    console.log(formState);
-
     return <div className="login-container">
         <Logo text={'Login to Stream'} />
         <form className="auth-form">

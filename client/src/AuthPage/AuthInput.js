@@ -33,7 +33,7 @@ export const AuthInput = ({
                 // onBlur={handleInputBlur}
             />
             <span className="auth-form-validation-message">
-                {showErrorMessage & validationMessage}
+                {showErrorMessage && validationMessage}
             </span>
         </>
     )
