@@ -2,8 +2,11 @@ import React, { useState } from "react";
 import { Logo } from "./Logo";
 import { AuthInput } from "./AuthInput";
 import { usernameValidationMessage, emailValidationMessage, passwordValidationMessage, passwordConfValidationMessage, validateEmail, validatePassword, validateUsername, validatePasswordConf } from "../shared/validators";
+import { useRegister } from "../shared/hooks"
 
 export const Register = ({ switchAuthHandler }) => {
+    const { isLoading, register } = useRegister()
+
     const [formState, setFormState] = useState({
         email: {
             value: '',
@@ -52,7 +55,7 @@ export const Register = ({ switchAuthHandler }) => {
                 isValid = validateUsername(value);
                 break;
             case 'passwordConf':
-                isValid = validatePasswordConf(formState.password.value,value);
+                isValid = validatePasswordConf(formState.password.value, value);
                 break;
             default:
                 break;
@@ -67,6 +70,16 @@ export const Register = ({ switchAuthHandler }) => {
             }
         }));
     }
+
+    const handleRegister = (event) => {
+        event.preventDefault();
+        register(formState.email.value, formState.password.value, formState.username.value)
+    }
+
+    const isSubmitButtonDisabled = !formState.password.isValid ||
+        !formState.email.isValid ||
+        !formState.username.isValid ||
+        formState.password.value !== formState.passwordConf.value || isLoading;
 
     return <div className="register-container">
         <Logo text={'Sign up to Stream'} />
@@ -111,11 +124,11 @@ export const Register = ({ switchAuthHandler }) => {
                 showErrorMessage={formState.passwordConf.showError}
                 validationMessage={passwordConfValidationMessage}
             />
-            <button disabled={!formState.password.isValid ||
-                !formState.email.isValid ||
-                !formState.username.isValid ||
-                formState.password.value !== formState.passwordConf.value
-            }
+            <button
+                onClick={handleRegister}
+                disabled={
+                    isSubmitButtonDisabled
+                }
             >
                 Register
             </button>
