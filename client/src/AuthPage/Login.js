@@ -2,8 +2,11 @@ import React, { useState } from "react";
 import { Logo } from "./Logo";
 import { AuthInput } from "./AuthInput";
 import { emailValidationMessage, passwordValidationMessage, validateEmail, validatePassword } from "../shared/validators";
+import { useLogin } from "../shared/hooks/useLogin";
 
 export const Login = ({ switchAuthHandler }) => {
+    const { login, isLoading } = useLogin()
+
     const [formState, setFormState] = useState({
         email: {
             value: '',
@@ -50,6 +53,15 @@ export const Login = ({ switchAuthHandler }) => {
         }));
     }
 
+    const handleLogin = (event) => {
+        event.preventDefault(); // Prevents refresh
+
+        login(formState.email.value, formState.password.value);
+    };
+
+    const isSubmitButtonDisabled =
+        isLoading || !formState.password.isValid || !formState.email.isValid;
+
     return <div className="login-container">
         <Logo text={'Login to Stream'} />
         <form className="auth-form">
@@ -73,7 +85,9 @@ export const Login = ({ switchAuthHandler }) => {
                 showErrorMessage={formState.password.showError}
                 validationMessage={passwordValidationMessage}
             />
-            <button disabled={!formState.password.isValid || !formState.email.isValid}> Log In </button>
+            <button onClick={handleLogin} disabled={isSubmitButtonDisabled}>
+                Log in
+            </button>
         </form>
         <span onClick={switchAuthHandler} className="auth-form-switch-label">
             Don't have an account? Please sign up
