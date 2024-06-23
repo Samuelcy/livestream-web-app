@@ -33,13 +33,51 @@ The Livestream Web App is a live streaming website, similar to Twitch, built usi
 - **Live Chat**: Real-time chat functionality with Socket.IO.
 - **API Testing**: Ensure the platform's functionality using Postman.
 
-## Prerequisites
-- Basic knowledge of JavaScript.
-- Familiarity with React.
-- Node.js and npm installed on your machine.
-
 ## Installation
 1. **Clone the repository**:
-   ```sh
+   ```
    git clone https://github.com/your-username/livestream-web-app.git
    cd livestream-web-app
+```
+2. **Install server dependencies**:
+
+2.
+
+cd server
+npm install
+Install client dependencies:
+
+sh
+Copy code
+cd ../client
+npm install
+Set up MongoDB: Ensure you have MongoDB installed and running. Create a new database for the project.
+
+Configure environment variables: Create a .env file in the server directory and add the following:
+
+env
+Copy code
+MONGO_URI=your_mongodb_uri
+JWT_SECRET=your_jwt_secret
+Run the server:
+
+sh
+Copy code
+cd ../server
+npm start
+Run the client:
+
+sh
+Copy code
+cd ../client
+npm start
+Usage
+Access the application: Open your browser and navigate to http://localhost:3000.
+Register and log in: Create a new account and log in to access the streaming and chat functionalities.
+Stream using OBS: Set up OBS with the stream key provided in your account settings to start streaming.
+Use the chat: Interact with viewers through the real-time chat feature.
+Contributing
+Contributions are welcome! Please fork the repository and create a pull request with your changes. Ensure your code adheres to the existing style and includes appropriate tests.
+
+License
+This project is licensed under the MIT License. See the LICENSE file for details.
