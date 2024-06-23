@@ -1,5 +1,3 @@
-# livestream-web-app
- 
 # Livestream Web App
 
 Welcome to the Livestream Web App! This README will guide you through understanding, setting up, and running the project efficiently.
@@ -74,8 +72,5 @@ npm start
 - Stream using OBS: Set up OBS with the stream key provided in your account settings to start streaming.
 - Use the chat: Interact with viewers through the real-time chat feature.
 
-## Contributing
-Contributions are welcome! Please fork the repository and create a pull request with your changes. Ensure your code adheres to the existing style and includes appropriate tests.
-
-License
+## License
 This project is licensed under the MIT License. See the LICENSE file for details.
