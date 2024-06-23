@@ -58,11 +58,11 @@ TOKEN_KEY=X
 ```
 5. Run the server & client:
 ```
-cd ../server
+cd livestream-web-app/server
 npm start
 ```
 ```
-cd ../client
+cd livestream-web-app/client
 npm start
 ```
 
