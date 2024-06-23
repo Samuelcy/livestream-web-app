@@ -36,7 +36,7 @@ The Livestream Web App is a live streaming website, similar to Twitch, built usi
 ## Installation
 1. **Clone the repository**:
 ```
-   git clone https://github.com/your-username/livestream-web-app.git
+git clone https://github.com/your-username/livestream-web-app.git
 ```
 2. **Install server & client dependencies**:
 ```
@@ -69,10 +69,11 @@ npm start
 ```
 
 ## Usage
-Access the application: Open your browser and navigate to http://localhost:3000.
-Register and log in: Create a new account and log in to access the streaming and chat functionalities.
-Stream using OBS: Set up OBS with the stream key provided in your account settings to start streaming.
-Use the chat: Interact with viewers through the real-time chat feature.
+- Access the application: Open your browser and navigate to http://localhost:3000.
+- Register and log in: Create a new account and log in to access the streaming and chat functionalities.
+- Stream using OBS: Set up OBS with the stream key provided in your account settings to start streaming.
+- Use the chat: Interact with viewers through the real-time chat feature.
+
 ## Contributing
 Contributions are welcome! Please fork the repository and create a pull request with your changes. Ensure your code adheres to the existing style and includes appropriate tests.
 
