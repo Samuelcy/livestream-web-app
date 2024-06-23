@@ -35,31 +35,31 @@ The Livestream Web App is a live streaming website, similar to Twitch, built usi
 
 ## Installation
 1. **Clone the repository**:
-   ```
+```
    git clone https://github.com/your-username/livestream-web-app.git
-   cd livestream-web-app
 ```
 2. **Install server dependencies**:
-
-2.
-
-cd server
+```
+cd livestream-web-app/server
 npm install
-Install client dependencies:
-
-sh
-Copy code
-cd ../client
+```
+2a. **Install client dependencies**:
+```
+cd livestream-web-app/client
 npm install
-Set up MongoDB: Ensure you have MongoDB installed and running. Create a new database for the project.
+```
 
-Configure environment variables: Create a .env file in the server directory and add the following:
+3. Set up MongoDB: Ensure you have MongoDB installed and running. Create a new database for the project.
 
-env
-Copy code
-MONGO_URI=your_mongodb_uri
-JWT_SECRET=your_jwt_secret
-Run the server:
+4. Configure environment variables: Create a .env file in the server directory and add the following:
+```
+API_PORT=X
+
+MONGO_URI=X
+
+TOKEN_KEY=X
+```
+5.Run the server:
 
 sh
 Copy code
