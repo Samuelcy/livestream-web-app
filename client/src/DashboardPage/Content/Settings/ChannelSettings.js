@@ -1,7 +1,7 @@
 import React from 'react';
 // import {StreamKey}from  "./Stream";
 // import {ChannelSettings} from ''
-import { usernameValidationMessage } from "../../../shared/validators";
+import { avatarUrlValidationMessage, descriptionValidationMessage, titleValidationMessage, usernameValidationMessage } from "../../../shared/validators";
 
 const inputs = [
     {
@@ -13,19 +13,19 @@ const inputs = [
     {
         field: "title",
         label: "Title",
-        validationMessage: "title validation message",
+        validationMessage: titleValidationMessage,
         type: "text",
     },
     {
         field: "avatarUrl",
         label: "Avatar Url",
-        validationMessage: "avatar url; validation emssage",
+        validationMessage: avatarUrlValidationMessage,
         type: "text",
     },
     {
         field: "description",
         label: "Descriptin",
-        validationMessage: "description validation message",
+        validationMessage: descriptionValidationMessage,
         type: "text",
         textarea: true,
     },
