@@ -106,8 +106,7 @@ export const ChannelSettings = ({ settings }) => {
     const handleFormSubmit = (e) => {
         e.preventDefault();
 
-        // TODO
-        // save settings using http request
+        // http request save settings
     };
 
     const isSubmitButtonDisabled =
