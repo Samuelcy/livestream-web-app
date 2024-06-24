@@ -1,5 +1,6 @@
 import React from "react";
 import { StreamKey } from "./StreamKey";
+import { ChannelSettings } from "./ChannelSettings";
 
 const channelSettings = {
     title: "Title",
