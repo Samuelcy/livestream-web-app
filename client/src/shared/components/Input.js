@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 
-export const AuthInput = ({
+export const Input = ({
     field,
     label,
     value,
@@ -9,7 +9,7 @@ export const AuthInput = ({
     showErrorMessage,
     validationMessage,
     onBlurHandler,
-
+    textarea,
 }) => {
     // Accepting an event that gives an input , after every single change it will receive a new value
     // passing field to onChangeHandler
@@ -25,13 +25,25 @@ export const AuthInput = ({
         <>
             <div className='auth-form-label'>
                 <span>{label}</span>
-            </div>
-            <input
-                type={type}
-                value={value}
-                onChange={handleValueChange}
-                onBlur={handleInputBlur}
-            />
+            </div> 
+            {textarea ? (
+                <textarea
+                    type={type}
+                    value={value}
+                    onChange={handleValueChange}
+                    onBlur={handleInputBlur}
+                    rows={5}
+                    style={{ maxWidth: "400px " }}
+                />
+            ) : (
+                <input
+                    type={type}
+                    value={value}
+                    onChange={handleValueChange}
+                    onBlur={handleInputBlur}
+                />
+            )}
+       
             <span className="auth-form-validation-message">
                 {showErrorMessage && validationMessage}
             </span>
