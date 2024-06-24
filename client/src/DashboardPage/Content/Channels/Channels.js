@@ -1,5 +1,4 @@
 import React from "react";
-import { Route, Routes } from "react-router-dom";
 import { ChannelCard } from "./ChannelCard";
 
 export const dummyChannels = [
