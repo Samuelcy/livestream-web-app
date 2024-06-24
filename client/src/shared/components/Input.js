@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 
-export const AuthInput = ({
+export const Input = ({
     field,
     label,
     value,
@@ -9,7 +9,7 @@ export const AuthInput = ({
     showErrorMessage,
     validationMessage,
     onBlurHandler,
-
+    textarea,
 }) => {
     // Accepting an event that gives an input , after every single change it will receive a new value
     // passing field to onChangeHandler
