@@ -29,7 +29,7 @@ export const useLogin = () => {
         // Token in the memory of the browser
         localStorage.setItem('user', JSON.stringify(userDetails))
 
-        navigate('/')
+        navigate('/channels')
     }
 
     return {
