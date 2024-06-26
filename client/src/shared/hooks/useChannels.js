@@ -33,9 +33,10 @@ export const useChannels = () => {
         setChannels({
             channels: channelsData.data.channels,
             // Render data for followed channels
-            followedChannelsData: channelsData.data.channels.filter((channel) =>
-                followedChannelsData.data.followedChannels.includes(channel.id)),
-        })
+            followedChannels: channelsData.data.channels.filter((channel) =>
+                followedChannelsData.data.followedChannels.includes(channel.id)
+            ),
+        });
     };
 
     useEffect(() => {
@@ -44,5 +45,8 @@ export const useChannels = () => {
 
     return {
         getChannels,
-    }
+        isFetching: !Boolean(channels),
+        allChannels: channels?.channels,
+        followedChannels: channels?.followedChannels,
+    };
 };
