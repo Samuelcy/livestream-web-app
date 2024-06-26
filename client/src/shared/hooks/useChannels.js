@@ -32,7 +32,9 @@ export const useChannels = () => {
 
         setChannels({
             channels: channelsData.data.channels,
-            followedChannelsData: followedChannelsData.data.followedChannels,
+            // Render data for followed channels
+            followedChannelsData: channelsData.data.channels.filter((channel) =>
+                followedChannelsData.data.followedChannels.includes(channel.id)),
         })
     };
 
