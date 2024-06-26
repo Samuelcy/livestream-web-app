@@ -30,7 +30,7 @@ export const register = async (data) => {
 
 export const getChannelSettings = async () => {
     try {
-        return await apiClient.get('./channels');
+        return await apiClient.get('/settings/channel');
     } catch (exception) {
         return {
             error: true,
