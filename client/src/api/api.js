@@ -56,10 +56,21 @@ export const getChannelSettings = async () => {
 export const updateChannelSettings = async (data) => {
     try {
         return await apiClient.put('/settings/channel', data);
-     } catch (exception) {
+    } catch (exception) {
         return {
             error: true,
             exception
         };
-     }
+    }
+}
+
+export const changePassword = async (data) => {
+    try {
+        return apiClient.patch("/settings/password", data);
+    } catch (exception) {
+        return {
+            error: true,
+            exception: exception,
+        };
+    }
 }
