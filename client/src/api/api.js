@@ -5,7 +5,7 @@ const apiClient = axios.create({
     timeout: 1000,
 });
 
-//  Before every request, get token and attach to header. Or else Settings return null 
+//  Before every request, get token and attach to header. Needed for API requests
 apiClient.interceptors.request.use((config) => {
     const userDetails = localStorage.getItem('user')
 
@@ -52,3 +52,14 @@ export const getChannelSettings = async () => {
         };
     }
 };
+
+export const updateChannelSettings = async (data) => {
+    try {
+        return await apiClient.put('/settings/channel', data);
+     } catch (exception) {
+        return {
+            error: true,
+            exception
+        };
+     }
+}
