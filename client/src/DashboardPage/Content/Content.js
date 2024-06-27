@@ -4,13 +4,13 @@ import { Channels } from "./Channels";
 import { ChannelView } from "./ChannelView";
 import { Settings } from "./Settings";
 
-export const Content = ({ channels }) => {
+export const Content = ({ channels, getChannels }) => {
     return <div className="content-container">
         <Routes>
             <Route path='settings' element={<Settings />} />
             <Route path='channels' element={<Channels channels={channels} />} />
             {/* Route for a specific channel by ID: /channel/1234 */}
-            <Route path='channel/:id' element={<ChannelView />} />
+            <Route path='channel/:id' element={<ChannelView getChannels={getChannels} />} />
         </Routes>
     </div>
 }

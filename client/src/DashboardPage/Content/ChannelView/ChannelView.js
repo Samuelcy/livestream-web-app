@@ -13,7 +13,7 @@ import { LoadingSpinner } from "../../../shared/components";
 //     isOnline: false,
 // }
 
-export const ChannelView = () => {
+export const ChannelView = ({ getChannels }) => {
     const { isFetching, getChannelDetails, channelDetails } = useChannelDetails();
 
     // id from URL
@@ -38,6 +38,7 @@ export const ChannelView = () => {
                     title={channelDetails.title}
                     description={channelDetails.description}
                     username={channelDetails.username}
+                    getChannels={getChannels}
                 />
             </div>
             <Chat />

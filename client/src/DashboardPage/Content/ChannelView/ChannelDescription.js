@@ -1,11 +1,11 @@
 import React from "react";
 import { useUserDetails, useFollowChannel } from "../../../shared/hooks";
 
-const FollowButton = ({ channelId }) => {
+const FollowButton = ({ channelId, getChannels }) => {
     const { followChannel } = useFollowChannel();
 
     const handleFollowChannel = () => {
-        followChannel(channelId)
+        followChannel(channelId, getChannels)
     }
 
     return <button onClick={handleFollowChannel} className="channel-follow-button">Follow</button>
@@ -17,7 +17,9 @@ export const ChannelDescription = ({
     username,
     title,
     description,
-    channelId }) => {
+    channelId,
+    getChannels
+}) => {
 
     const { isLogged } = useUserDetails();
 
@@ -26,7 +28,7 @@ export const ChannelDescription = ({
             <span className="channel-description-title">{username}</span>
             <span>
                 {isLogged && (
-                    <FollowButton className="channel-follow-button" channelId={channelId} />
+                    <FollowButton className="channel-follow-button" channelId={channelId} getChannels={getChannels} />
                 )}
             </span>
             <span className="channel-description-subtitle">{title}</span>
