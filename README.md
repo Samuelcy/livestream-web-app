@@ -4,11 +4,11 @@ Welcome to the Livestream Web App! This README will guide you through understand
 
 ## Table of Contents
 - [Project Overview](#project-overview)
-- [Technologies Used](#technologies-used)
 - [Features](#features)
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
 - [Usage](#usage)
+- [Technologies Used](#technologies-used)
 - [Contributing](#contributing)
 - [License](#license)
 
