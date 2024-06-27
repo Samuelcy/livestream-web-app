@@ -59,10 +59,12 @@ TOKEN_KEY=X
 cd livestream-web-app/server
 npm install
 npm start
+
 # Install and run the client
 cd ../client
 npm install
 npm start
+
 # Install and run the RTMP server
 cd ../rtmp-server
 npm install
