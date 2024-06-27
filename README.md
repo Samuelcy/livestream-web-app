@@ -20,6 +20,7 @@ The Livestream Web App is a live streaming website, similar to Twitch, built usi
 - **Live Chat**: Real-time chat functionality with Socket.IO.
 - **Channel Support**: Display users who are live, similar to Twitch, including channel dashboard functionalities.
 - **User Authentication**: Secure user login and registration.
+*Note: For users to appear on the channels dashboard, their avatar URL must be updated in the settings. This update sets the channel as active.*
 
 ## Livestream Flow
 1. **User connects to OBS**: The user sets up OBS (Open Broadcaster Software) to start streaming.
