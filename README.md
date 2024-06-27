@@ -73,11 +73,18 @@ npm start
 cd livestream-web-app/client
 npm start
 ```
+```
+cd livestream-web-app/rtmp-server
+npm start
+```
 
 ## Usage
 - Access the application: Open your browser and navigate to http://localhost:3000.
 - Register and log in: Create a new account and log in to access the streaming and chat functionalities.
-- Stream using OBS: Set up OBS with the stream key provided in your account settings to start streaming.
+- Stream using OBS:
+  - Go to OBS, open settings, and go to the stream section.
+  - For the Server, add rtmp://localhost/live/.
+  - For the Stream Key, input the stream key provided to your livestream account during creation inside the settings.
 - Use the chat: Interact with viewers through the real-time chat feature.
 
 ## License
