@@ -19,15 +19,23 @@ const followedChannels = [
 
 ]
 
-export const Sidebar = () => {
+export const Sidebar = ({ channels }) => {
+
+    // Returns empty sidebar if user isn't following channesl
+    if (!channels) {
+        return null;
+    }
+
     return <div className="sidebar-container">
         <span className="sidebar-title">For you</span>
         <span className="sidebar-subtitle">FOLLOWED CHANNELS</span>
-        {followedChannels.map(channel => {
-            return <div key={channel.id} className='sidebar-list-item'>
-                <span className="sidebar-list-username">{channel.username}</span>
-                <span classname="sidebar-list-status" style={{ color: channel.isOnline ? 'green' : 'red' }}>{channel.isOnline ? "Online" : "Offline"}</span>
-            </div>
+        {channels?.map((channel) => {
+            return (
+                <div key={channel.id} className='sidebar-list-item'>
+                    <span className="sidebar-list-username">{channel.username}</span>
+                    <span classname="sidebar-list-status" style={{ color: channel.isOnline ? 'green' : 'red' }}>{channel.isOnline ? "Online" : "Offline"}</span>
+                </div>
+            );
         })}
     </div>
 }
