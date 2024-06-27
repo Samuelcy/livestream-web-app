@@ -1,4 +1,6 @@
-export { getChannelDetails as getChannelDetailsRequest } from "../../api"
+import {useState} from "react";
+import { getChannelDetails as getChannelDetailsRequest } from "../../api"
+import toast from "react-hot-toast"
 
 export const useChannelDetails = () => {
     const [channelDetails, setChannelDetails] = useState(null);
@@ -12,7 +14,7 @@ export const useChannelDetails = () => {
             );
         }
 
-        setChannelDetails(response.data);
+        setChannelDetails(responseData.data);
     }
 
     // Fetch when channel details are not set

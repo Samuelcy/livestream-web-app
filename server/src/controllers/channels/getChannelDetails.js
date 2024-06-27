@@ -25,7 +25,7 @@ export const getChannelDetails = async (req, res) => {
 
     } catch (err) {
         console.log(err)
-        return res.status(500).send("Something went wrong");
+        return res.status(500).send("Channel not found.");
     }
 };
 
