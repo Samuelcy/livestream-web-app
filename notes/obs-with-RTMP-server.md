@@ -1,6 +1,8 @@
-- OBS gets the user stream.
-- Stream goes to the RTMP server.
-  - An RTMP server allows you to take an incoming Real-Time Messaging Protocol (RTMP) live video stream from an encoder and transfer it to a playback protocol like HTTP Live Streaming (HLS) for viewing. RTMP is known today for its low-latency video streaming.
-- Ask the RMTP server from the Server (API) which channels are online (if the stream is active).
-- Client (React) requests to get the channel stream of a specific stream key from the RTMP server.
-- Everything connects to the RTMP server.
+# OBS with RTMP Flow
+
+- **OBS gets the user stream.**
+- **Stream is sent to the RTMP server.**
+  - An RTMP server enables you to receive a live video stream in Real-Time Messaging Protocol (RTMP) from an encoder and convert it to a playback protocol like HTTP Live Streaming (HLS) for viewing. RTMP is recognized for its low-latency video streaming capabilities.
+- **The RMTP server is queried from the Server API to check which channels are online (if the stream is active).**
+- **The client (React) requests the channel stream using a specific stream key from the RTMP server.**
+- **All connections are routed through the RTMP server.**
