@@ -14,7 +14,7 @@
 
 ## Channel Routes
 
-### GET: /api/channel/
+### GET: /api/channels/ (Array of channels)
 - **Payload:** X
 - **Response:** id, username, title, avatarUrl, streamKey, isOnline
 
@@ -24,7 +24,7 @@
 
 ### GET: /api/channels/followed
 - **Payload:** X
-- **Response:** X
+- **Response:** Array with ids of followed channels
 
 ### POST: /api/channels/follow
 - **Payload:** channelId
