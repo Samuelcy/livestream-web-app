@@ -84,7 +84,7 @@ npm start
 - Stream using OBS:
   - Go to OBS, open settings, and go to the stream section.
   - For the Server, add rtmp://localhost/live/.
-  - For the Stream Key, input the stream key provided to your livestream account during creation inside the settings.
+  - For the Stream Key, input the stream key provided to your livestream account during user creation in the settings.
 - Use the chat: Interact with viewers through the real-time chat feature.
 
 ## License
