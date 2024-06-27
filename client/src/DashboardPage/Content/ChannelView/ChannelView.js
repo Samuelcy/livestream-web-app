@@ -14,12 +14,12 @@ import { ReactFlvPlayer } from "react-flv-player";
 //     isOnline: false,
 // }
 
-export const Stream = () => {
+export const Stream = ({ streamUrl }) => {
     return <div className="channel-video-container">
         <ReactFlvPlayer
             width="100%"
             height="100%"
-            url="http://localhost:8000/live/fe523962-dc02-4f7a-8daf-d64f31ab302c.flv"
+            url={streamUrl}
         />
     </div>
 }
@@ -44,7 +44,7 @@ export const ChannelView = ({ getChannels }) => {
                 {/* <div className="channel-offline-placeholder">
                     <span>Channel is offline</span>
                 </div> */}
-                <Stream />
+                <Stream streamUrl={channelDetails.streamUrl} />
                 <ChannelDescription
                     channelId={channelDetails.id}
                     title={channelDetails.title}
