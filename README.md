@@ -35,11 +35,15 @@ git clone https://github.com/your-username/livestream-web-app.git
 ```
 2. **Install server & client dependencies**:
 ```
-cd livestream-web-app/server
+cd ../server
 npm install
 ```
 ```
-cd livestream-web-app/client
+cd ../client
+npm install
+```
+```
+cd ../rtmp-server
 npm install
 ```
 
@@ -53,23 +57,20 @@ MONGO_URI=X
 
 TOKEN_KEY=X
 ```
-**Install and run the server, client, and RTMP server**:
+**Run the server, client, and RTMP server**:
 ```
-# Install and run the server
-cd livestream-web-app/server
-npm install
+cd ../server
 npm start
-
-# Install and run the client
+```
+```
 cd ../client
-npm install
-npm start
-
-# Install and run the RTMP server
-cd ../rtmp-server
-npm install
 npm start
 ```
+```
+cd ../rtmp-server
+npm start
+```
+
 ## Usage
 - Access the application: Open your browser and navigate to http://localhost:3000.
 - Register and log in: Create a new account and log in to access the streaming and chat functionalities.
