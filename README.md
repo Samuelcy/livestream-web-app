@@ -53,20 +53,21 @@ MONGO_URI=X
 
 TOKEN_KEY=X
 ```
-5. Run the server & client:
+**Install and run the server, client, and RTMP server**:
 ```
+# Install and run the server
 cd livestream-web-app/server
+npm install
+npm start
+# Install and run the client
+cd ../client
+npm install
+npm start
+# Install and run the RTMP server
+cd ../rtmp-server
+npm install
 npm start
 ```
-```
-cd livestream-web-app/client
-npm start
-```
-```
-cd livestream-web-app/rtmp-server
-npm start
-```
-
 ## Usage
 - Access the application: Open your browser and navigate to http://localhost:3000.
 - Register and log in: Create a new account and log in to access the streaming and chat functionalities.
