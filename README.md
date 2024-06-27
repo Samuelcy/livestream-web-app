@@ -33,7 +33,7 @@ The Livestream Web App is a live streaming website, similar to Twitch, built usi
 
 ## Livestream Flow
 1. **User connects to OBS**: The user sets up OBS (Open Broadcaster Software) to start streaming.
-2. **OBS connects to the (RTMP)[https://www.npmjs.com/package/@types/node-media-server] Server**: The Real-Time Messaging Protocol (RTMP) server receives the live video stream from OBS. The RTMP server converts this stream into a playback protocol like HTTP Live Streaming (HLS) for viewing.
+2. **OBS connects to the [RTMP Server](https://www.npmjs.com/package/@types/node-media-server)**: The Real-Time Messaging Protocol (RTMP) server receives the live video stream from OBS. The RTMP server converts this stream into a playback protocol like HTTP Live Streaming (HLS) for viewing.
 3. **All streams are connected to RTMP**: Every live stream is managed through the RTMP server.
 4. **Server API**: The server API checks which channels are online.
 5. **Client requests**: The React client requests the server for the stream of a specific channel using the stream key.
