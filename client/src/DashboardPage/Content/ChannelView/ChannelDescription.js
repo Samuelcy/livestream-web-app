@@ -1,9 +1,17 @@
 import React from "react";
-import { useUserDetails } from "../../../shared/hooks";
+import { useUserDetails, useFollowChannel } from "../../../shared/hooks";
 
 const FollowButton = ({ channelId }) => {
-    return <button className="channel-follow-button">Follow</button>
+    const { followChannel } = useFollowChannel();
+
+    const handleFollowChannel = () => {
+        followChannel(channelId)
+    }
+
+    return <button onClick={handleFollowChannel} className="channel-follow-button">Follow</button>
 }
+
+
 
 export const ChannelDescription = ({
     username,
