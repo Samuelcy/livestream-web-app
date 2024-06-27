@@ -15,15 +15,6 @@ Welcome to the Livestream Web App! This README will guide you through understand
 ## Project Overview
 The Livestream Web App is a live streaming website, similar to Twitch, built using the MERN stack (MongoDB, Express, React, Node). It features live chat functionality using Socket.IO and integrates with OBS for streaming capabilities. By following this README, you'll be able to set up and run your own streaming website.
 
-## Technologies Used
-- **MongoDB**: NoSQL database for storing user and stream data.
-- **Express**: Web application framework for managing the server.
-- **React**: Library for building user interfaces.
-- **Node.js**: JavaScript runtime for server-side programming.
-- **Socket.IO**: Library for real-time web applications (live chat).
-- **OBS**: Software for video recording and live streaming.
-- **Postman**: Tool for testing APIs.
-
 ## Features
 - **MERN Stack Integration**: Full-stack development with MongoDB, Express, React, and Node.
 - **User Authentication**: Secure user login and registration.
@@ -86,6 +77,15 @@ npm start
   - For the Server, add rtmp://localhost/live/.
   - For the Stream Key, input the stream key provided to your livestream account during user creation in the settings.
 - Use the chat: Interact with viewers through the real-time chat feature.
+
+## Technologies Used
+- **MongoDB**: NoSQL database for storing user and stream data.
+- **Express**: Web application framework for managing the server.
+- **React**: Library for building user interfaces.
+- **Node.js**: JavaScript runtime for server-side programming.
+- **Socket.IO**: Library for real-time web applications (live chat).
+- **OBS**: Software for video recording and live streaming.
+- **Postman**: Tool for testing APIs.
 
 ## License
 This project is licensed under the MIT License. See the LICENSE file for details.
