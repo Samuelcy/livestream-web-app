@@ -17,15 +17,15 @@ export const Stream = ({ streamUrl }) => {
 export const ChannelView = ({ getChannels }) => {
     const { isFetching, getChannelDetails, channelDetails } = useChannelDetails();
 
-    // id from URL
+    // id from url
     const { id } = useParams();
 
     useEffect(() => {
         getChannelDetails(id);
-    }, [])
+    }, [getChannelDetails, id]);
 
     if (isFetching) {
-        return <LoadingSpinner />
+        return <LoadingSpinner />;
     }
 
     return (
@@ -48,5 +48,5 @@ export const ChannelView = ({ getChannels }) => {
             </div>
             <Chat />
         </div>
-    )
+    );
 };
