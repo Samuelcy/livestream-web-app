@@ -13,11 +13,11 @@ export const getChannelSettings = async (req, res) => {
 
         return res.status(200).json({
             id: userData.channel._id,
-            username: userData.channel.title,
+            username: userData.username,
             title: userData.channel.title,
             description: userData.channel.description,
             avatarUrl: userData.channel.avatarUrl,
-            streamKey: userData.channel.streamKey
+            streamKey: userData.channel.streamKey,
         });
     } catch (err) {
         console.log(error);

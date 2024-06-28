@@ -33,7 +33,7 @@ export const Sidebar = ({ channels }) => {
             return (
                 <div key={channel.id} className='sidebar-list-item'>
                     <span className="sidebar-list-username">{channel.username}</span>
-                    <span classname="sidebar-list-status" style={{ color: channel.isOnline ? 'green' : 'red' }}>{channel.isOnline ? "Online" : "Offline"}</span>
+                    <span className="sidebar-list-status" style={{ color: channel.isOnline ? 'green' : 'red' }}>{channel.isOnline ? "Online" : "Offline"}</span>
                 </div>
             );
         })}
