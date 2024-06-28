@@ -111,7 +111,7 @@ export const ChannelSettings = ({ settings, saveSettings }) => {
             title: formState.title.value,
             description: formState.description.value,
             avatarUrl: formState.avatarUrl.value,
-        })
+        });
     };
 
     const isSubmitButtonDisabled =

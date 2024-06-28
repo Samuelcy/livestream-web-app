@@ -40,7 +40,7 @@ export const useChannels = () => {
     };
 
     useEffect(() => {
-        console.log(channels);
+        // console.log(channels);
     }, [channels]);
 
     return {

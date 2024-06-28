@@ -1,6 +1,6 @@
+import { ReactFlvPlayer } from "react-flv-player";
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { ReactFlvPlayer } from "react-flv-player";
 import { Chat } from "./Chat";
 import { ChannelDescription } from "./ChannelDescription";
 import { useChannelDetails } from "../../../shared/hooks";
@@ -22,10 +22,10 @@ export const ChannelView = ({ getChannels }) => {
 
     useEffect(() => {
         getChannelDetails(id);
-    }, [])
+    }, [getChannelDetails, id]);
 
     if (isFetching) {
-        return <LoadingSpinner />
+        return <LoadingSpinner />;
     }
 
     return (
@@ -48,5 +48,5 @@ export const ChannelView = ({ getChannels }) => {
             </div>
             <Chat />
         </div>
-    )
+    );
 };
