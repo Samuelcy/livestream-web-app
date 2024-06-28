@@ -5,7 +5,7 @@ const imageUrl = 'https://media.istockphoto.com/id/1334436084/photo/top-down-vie
 const ChannelAvatar = ({ url }) => {
     return (
         <div className="channels-avatar-container">
-            <img src={url || imageUrl} widht="100%" height="100%" />
+            <img src={url || imageUrl} width="100%" height="100%" />
         </div>
     )
 }
@@ -22,12 +22,17 @@ export const ChannelCard = ({
         navigateToChannelHandler(id)
     }
 
-    return <div className="channels-card" onClick={handleNavigate} >
-        <ChannelAvatar url={avatarUrl} />
-        <span className="channels-card-title">{title}</span>
-        <span className="channels-card-text">{username}</span>
-        <span className="channels-card-text"
-            style={{ color: isOnline ? 'green' : 'red' }}
-        >{isOnline ? "Online" : "Offline"}</span>
-    </div>
+    return (
+        <div className="channels-card" onClick={handleNavigate}>
+            <ChannelAvatar url={avatarUrl} />
+            <span className="channels-card-title">{title}</span>
+            <span className="channels-card-text">{username}</span>
+            <span
+                className="channels-card-text"
+                style={{ color: isOnline ? "green" : "red" }}
+            >
+                {isOnline ? "Online" : "Offline"}
+            </span>
+        </div>
+    );
 };
