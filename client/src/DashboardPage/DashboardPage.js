@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Nav } from "./Nav";
 import { Sidebar } from "./Sidebar";
-import { Content } from "./Content/Content";
+import { Content } from "./Content";
 import { useChannels, useUserDetails } from "../shared/hooks";
 import { LoadingSpinner } from "../shared/components";
 
@@ -13,6 +13,7 @@ export const DashboardPage = () => {
 
     useEffect(() => {
         getChannels(isLogged);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     if (isFetching) {
@@ -22,8 +23,8 @@ export const DashboardPage = () => {
     return (
         <div className="dashboard-container">
             <Nav />
-            <Sidebar channels={followedChannels}/>
-            <Content channels={allChannels} getChannels={getChannels}/>
+            <Sidebar channels={followedChannels} />
+            <Content channels={allChannels} getChannels={getChannels} followedChannels={followedChannels} />
         </div>
     );
 };

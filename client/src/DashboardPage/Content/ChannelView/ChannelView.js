@@ -14,7 +14,7 @@ export const Stream = ({ streamUrl }) => {
     );
 };
 
-export const ChannelView = ({ getChannels }) => {
+export const ChannelView = ({ getChannels, followedChannels }) => {
     const { isFetching, getChannelDetails, channelDetails } = useChannelDetails();
 
     // id from url
@@ -44,6 +44,7 @@ export const ChannelView = ({ getChannels }) => {
                     description={channelDetails.description}
                     username={channelDetails.username}
                     getChannels={getChannels}
+                    followedChannels={followedChannels}
                 />
             </div>
             <Chat />

@@ -15,6 +15,8 @@ export const useChannelDetails = () => {
         }
 
         setChannelDetails(responseData.data);
+        // console.log("Channel details fetched:", responseData.data); // Log channel details here
+
     }
 
     // Fetch when channel details are not set
