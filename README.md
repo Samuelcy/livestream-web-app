@@ -17,7 +17,7 @@ The Livestream Web App is a live streaming website, similar to Twitch, built usi
 
 ## Features
 - **Live Streaming**: Integration with OBS for real-time video streaming.
-- **Live Chat**: Real-time chat functionality with Socket.IO.
+- **Live Chat**: Real-time chat functionality with Socket.IO. (WIP)
 - **Channel Support**: Display users who are live, similar to Twitch, including channel dashboard functionalities.
 - **User Authentication**: Secure user login and registration.
 
