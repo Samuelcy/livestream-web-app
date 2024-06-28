@@ -7,8 +7,8 @@ const ChannelAvatar = ({ url }) => {
         <div className="channels-avatar-container">
             <img src={url || imageUrl} width="100%" height="100%" />
         </div>
-    )
-}
+    );
+};
 
 export const ChannelCard = ({
     title,
@@ -19,9 +19,8 @@ export const ChannelCard = ({
     navigateToChannelHandler,
 }) => {
     const handleNavigate = () => {
-        navigateToChannelHandler(id)
-    }
-
+        navigateToChannelHandler(id);
+    };
     return (
         <div className="channels-card" onClick={handleNavigate}>
             <ChannelAvatar url={avatarUrl} />
