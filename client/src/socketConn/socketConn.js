@@ -15,6 +15,12 @@ export const connectWithSocketServer = () => {
         console.log(chatHistory);
         // console.log('Chat history from the server')
     })
+
+    // Event listener for chat history hook
+    socket.on('chat-message', (chatMessage) => {
+        console.log("New message inputed");
+        console.log(chatMessage);
+    })
 }
 
 // Emit from the client to the server
@@ -28,4 +34,9 @@ export const sendChatMessage = (toChannel, message) => {
         toChannel,
         message,
     });
+}
+
+// Leave chat
+export const closeChatSubscription = (channelId) => {
+    socket.emit("chat-unsubscribe", channelId);
 }

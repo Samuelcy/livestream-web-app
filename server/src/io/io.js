@@ -18,13 +18,19 @@ export const registerSocketServer = (server) => {
 
         // After connection with client, listen for chat-history event from client
         socket.on('chat-history', (channelId) => {
+            socket.join(channelId); // uniq ID
             emitChatHistory(socket, channelId);
             // console.log("Emitting chat-history received from client, sending to emitChatHistory");
         })
 
         // Receive data from the client
         socket.on('chat-message', (data) => {
-            emitChatMessage(io, { toChannel: data.toChannel, message: data.message});
+            emitChatMessage(io, { toChannel: data.toChannel, message: data.message });
+        })
+
+        // Leave channel
+        socket.on('chat-unsubscribe', (channelId) => {
+            socket.leave(channelId);
         })
     });
 }

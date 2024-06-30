@@ -4,10 +4,7 @@ import Message from "../../models/Message.js";
 export const emitChatHistory = async (socket, channelId) => {
     try {
         const channel = await Channel.findById(channelId).populate('messages')
-        console.log("Test 0")
         if (channel) {
-            console.log("Test 1")
-
             return socket.emit("chat-history", {
                 channelId,
                 messages: channel.messages.map((m) => ({
@@ -18,7 +15,6 @@ export const emitChatHistory = async (socket, channelId) => {
         }
 
         console.log(channelId);
-        console.log("Test 2")
 
         // Response sent back to client
         socket.emit('chat-history', {
@@ -51,12 +47,10 @@ export const emitChatMessage = async (io, messageData) => {
             channel.messages.push(newMessage._id);
 
             await channel.save();
-        }
 
-        const newMessage = new Message({
-            content: messageData.content,
-            author: messageData.message.author
-        })
+            // Shares message to other userss
+            io.to(messageData.toChannel).emit("chat-message", newMessage)
+        }
     } catch (err) {
         console.log(err)
 
