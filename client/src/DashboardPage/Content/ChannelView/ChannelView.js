@@ -22,7 +22,7 @@ export const ChannelView = ({ getChannels }) => {
 
     useEffect(() => {
         getChannelDetails(id);
-    }, [getChannelDetails, id]);
+    }, []);
 
     if (isFetching) {
         return <LoadingSpinner />;
