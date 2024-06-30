@@ -42,14 +42,14 @@ export const emitChatMessage = async (io, messageData) => {
             const newMessage = new Message({
                 content: messageData.message.content,
                 author: messageData.message.author,
-                data: new Data(),
-            })
+                date: new Date(),
+            });
 
             await newMessage.save();
 
             // Message schema saves ID not msg object
             channel.messages.push(newMessage._id);
-            
+
             await channel.save();
         }
 

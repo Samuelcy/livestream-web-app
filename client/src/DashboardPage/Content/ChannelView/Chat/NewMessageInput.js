@@ -9,7 +9,9 @@ export const NewMessageInput = ({ sendMessage }) => {
 
     const handleSendMessage = () => {
         // Send message to the server
-
+        if (messageContent.length > 0) {
+            sendMessage(messageContent);
+        }
         // Rests input value after sending message
         setMessageContent("")
     }
@@ -21,7 +23,7 @@ export const NewMessageInput = ({ sendMessage }) => {
     }
 
     console.log(messageContent);
-    
+
     return <div className="chat-message-input-container">
         <input
             className="chat-message-input"

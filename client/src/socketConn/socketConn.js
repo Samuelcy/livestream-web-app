@@ -22,3 +22,10 @@ export const getChatHistory = (channelId) => {
     socket.emit("chat-history", channelId);
     // console.log("Emitting chat history to the server");
 }
+
+export const sendChatMessage = (toChannel, message) => {
+    socket.emit('chat-message', {
+        toChannel,
+        message,
+    });
+}
