@@ -27,11 +27,11 @@ const Message = ({ author, content }) => {
     )
 }
 
-export const Messages = ({messages}) => {
+export const Messages = ({ messages }) => {
     return <div className="chat-messages-container">
         {messages.map((message) => (
             <Message
-                key={message.id}
+                key={`${message.author}-${message.content}-${message.date}`}
                 author={message.author}
                 content={message.content}
             />

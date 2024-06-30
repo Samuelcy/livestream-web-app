@@ -19,11 +19,24 @@ export const connectWithSocketServer = () => {
     })
 
     // Event listener for chat history hook
-    socket.on('chat-message', (chatMessage) => {
-        console.log("New message inputed");
+    socket.on("chat-message", (chatMessage) => {
+        const { chatHistory, setChatHistory } = useStore.getState();
+
         console.log(chatMessage);
-    })
-}
+
+        setChatHistory({
+            channelId: chatHistory.channelId,
+            messages: [
+                ...chatHistory.messages,
+                {
+                    author: chatMessage.author,
+                    content: chatMessage.content,
+                    date: chatMessage.date,
+                },
+            ],
+        });
+    });
+};
 
 // Emit from the client to the server
 export const getChatHistory = (channelId) => {
