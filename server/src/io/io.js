@@ -1,5 +1,5 @@
 import { Server } from "socket.io"
-import { emitChatHistory } from "./events/chatHistory.js"
+import { emitChatHistory, emitChatMessage } from "./events/chatHistory.js"
 
 let io;
 
@@ -20,6 +20,11 @@ export const registerSocketServer = (server) => {
         socket.on('chat-history', (channelId) => {
             emitChatHistory(socket, channelId);
             // console.log("Emitting chat-history received from client, sending to emitChatHistory");
+        })
+
+        // Receive data from the client
+        socket.on('chat-message', (data) => {
+            emitChatMessage(io, { toChannel: data.toChannel, message: data.message});
         })
     });
 }

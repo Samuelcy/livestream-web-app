@@ -1,4 +1,5 @@
 import Channel from "../../models/Channel.js";
+import Message from "../../models/Message.js";
 
 export const emitChatHistory = async (socket, channelId) => {
     try {
@@ -30,5 +31,34 @@ export const emitChatHistory = async (socket, channelId) => {
         socket.emit('chat-history', {
             errorOccured: true,
         })
+    }
+}
+
+export const emitChatMessage = async (io, messageData) => {
+    try {
+        const channel = await Channel.findById(messageData.toChannel);
+
+        if (channel) {
+            const newMessage = new Message({
+                content: messageData.message.content,
+                author: messageData.message.author,
+                data: new Data(),
+            })
+
+            await newMessage.save();
+
+            // Message schema saves ID not msg object
+            channel.messages.push(newMessage._id);
+            
+            await channel.save();
+        }
+
+        const newMessage = new Message({
+            content: messageData.content,
+            author: messageData.message.author
+        })
+    } catch (err) {
+        console.log(err)
+
     }
 }
