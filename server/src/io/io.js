@@ -1,4 +1,5 @@
 import { Server } from "socket.io"
+import { emitChatHistory } from "./events/chatHistory.js"
 
 let io;
 
@@ -10,12 +11,15 @@ export const registerSocketServer = (server) => {
         }
     });
 
+    // Socket is the connection object between client and server
     io.on("connection", (socket) => {
         console.log("New user connected");
         console.log(socket.id);
 
-        socket.on('chat-histry', (channelId) => {
+        // After connection with client, listen for chat-history event from client
+        socket.on('chat-history', (channelId) => {
             emitChatHistory(socket, channelId);
+            // console.log("Emitting chat-history received from client, sending to emitChatHistory");
         })
     });
 }
