@@ -54,9 +54,9 @@ npm install
 
 4. Configure environment variables: Create a .env file in the server directory and add the following:
 ```
-API_PORT=X
+API_PORT=5002
 
-MONGO_URI=X
+MONGO_URI={MONGO-KEY-HERE}
 
 TOKEN_KEY=X
 ```
