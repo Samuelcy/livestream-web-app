@@ -22,7 +22,7 @@ export const ChannelView = ({ getChannels }) => {
 
     useEffect(() => {
         getChannelDetails(id);
-    }, [getChannelDetails, id]);
+    }, []);
 
     if (isFetching) {
         return <LoadingSpinner />;
@@ -46,7 +46,7 @@ export const ChannelView = ({ getChannels }) => {
                     getChannels={getChannels}
                 />
             </div>
-            <Chat />
+            <Chat channelId={channelDetails.id}/>
         </div>
     );
 };

@@ -2,10 +2,14 @@ import express from 'express'
 import http from 'http'
 import cors from 'cors'
 import dotenv from 'dotenv'
+import mongoose from 'mongoose';
+import User from "./src/models/Message.js"
+import Channel from './src/models/Channel.js'
+import Message from './src/models/Message.js'
 import authRoutes from './src/routes/authRoutes.js'
 import channelsRoutes from './src/routes/channelsRoutes.js'
 import settingsRoutes from './src/routes/settingsRoutes.js'
-import mongoose from 'mongoose';
+import { registerSocketServer } from './src/io/io.js'
 
 dotenv.config();
 
@@ -23,7 +27,9 @@ app.use('/api/auth', authRoutes);
 app.use('/api/channels', channelsRoutes);
 app.use('/api/settings', settingsRoutes);
 
-const server = http.createServer(app)
+const server = http.createServer(app);
+
+registerSocketServer(server);
 
 // If sucessfully connect to DB, connect to server
 mongoose.connect(process.env.MONGO_URI)
