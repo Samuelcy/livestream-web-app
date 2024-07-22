@@ -1,27 +1,27 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import logo from "../../resources/images/logoPlaceholder.svg"
+import { AppBar, Toolbar, Button, IconButton, Box } from '@mui/material';
 import { useUserDetails } from "../../shared/hooks";
+import logo from "../../resources/images/izumo_logo.png";
 
 const NavLogo = () => {
     return (
-        <div className="nav-logo-container">
-            <img className="nav-logo" width="100%" height="100%" src={logo} />
-        </div>
+        <IconButton edge="start" color="inherit" aria-label="logo">
+            <img src={logo} alt="logo" style={{ height: '38px' }} />
+        </IconButton>
     )
 }
 
-const NavButton = ({ text, onClickHandler }) => {
+const NavButton = ({ text, onClickHandler, variant, color }) => {
     return (
-        <span className="nav-button" onClick={onClickHandler}>
+        <Button variant={variant} color={color} onClick={onClickHandler} sx={{ marginLeft: 2 }}>
             {text}
-        </span>
+        </Button>
     )
 }
 
 export const Nav = () => {
     const { isLogged, logout } = useUserDetails();
-
     const navigate = useNavigate();
 
     const handleNavigateToAuth = () => {
@@ -40,16 +40,21 @@ export const Nav = () => {
         logout();
     }
 
-    return <div className="nav-container">
-        <NavLogo />
-        <div className="nav-buttons-container">
-            <NavButton text="Browse" onClickHandler={handleNavigateToAuthChannels} />
-            {!isLogged ? (<NavButton text="Login" onClickHandler={handleNavigateToAuth} />
-            ) : (
-                <div>
-                    <NavButton text="My Account" onClickHandler={handleNavigateToSettings} />
-                    <NavButton text="Logout" onClickHandler={handleLogout} />
-                </div>)}
-        </div>
-    </div>
+    return (
+        <AppBar position="fixed" >
+            <Toolbar>
+                <NavLogo />
+                <Box sx={{ flexGrow: 1 }} />
+                <NavButton text="Browse" onClickHandler={handleNavigateToAuthChannels} variant="outlined" color="secondary" />
+                {!isLogged ? (
+                    <NavButton text="Login" onClickHandler={handleNavigateToAuth} color="secondary" variant="outlined" />
+                ) : (
+                    <>
+                        <NavButton text="My Account" onClickHandler={handleNavigateToSettings} color="secondary" variant="outlined" />
+                        <NavButton text="Logout" onClickHandler={handleLogout} color="secondary" variant="" />
+                    </>
+                )}
+            </Toolbar>
+        </AppBar>
+    )
 };
