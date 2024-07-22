@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { passwordValidationMessage, validatePassword } from "../../../shared/validators";
 import { Input } from "../../../shared/components";
 import { useChangePassword } from "../../../shared/hooks";
+import { Box, Button } from "@mui/material";
 
 const inputs = [
     {
@@ -66,7 +67,17 @@ export const PasswordSettings = () => {
     };
 
     return (
-        <form className="settings-form">
+        <Box
+            component="form"
+            sx={{
+                display: "flex",
+                flexDirection: "column",
+                gap: 2, // Add spacing between form elements
+
+                margin: "auto", // Center the form horizontally
+                mt: 4, // Optional: add top margin
+            }}
+        >
             {inputs.map((input) => (
                 <Input
                     key={input.field}
@@ -80,9 +91,14 @@ export const PasswordSettings = () => {
                     type={input.type}
                 />
             ))}
-            <button disabled={isSubmitButtonDisabled} onClick={handleFormSubmit}>
+            <Button
+                variant="contained"
+                color="primary"
+                disabled={isSubmitButtonDisabled}
+                onClick={handleFormSubmit}
+            >
                 Save changes
-            </button>
-        </form>
+            </Button>
+        </Box>
     );
 };
