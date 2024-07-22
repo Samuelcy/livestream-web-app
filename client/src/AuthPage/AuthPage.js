@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Login } from "./Login";
 import { Register } from "./Register";
-
+import { Box } from "@mui/material";
 import "./authPage.css";
 
 export const AuthPage = () => {
@@ -13,10 +13,26 @@ export const AuthPage = () => {
     }
 
     return (
-        <div className="auth-container">
-            {isLogin ?
-                (<Login switchAuthHandler={handleAuthPageToggle} />) :
-                (<Register switchAuthHandler={handleAuthPageToggle} />)}
-        </div>
+        <Box
+            sx={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                height: "100vh", // Adjust height as needed
+                backgroundColor: 'background.paper'
+            }}
+        >
+            <Box
+                sx={{
+                    width: "500px", // Adjust width as needed
+                }}
+            >
+                {isLogin ? (
+                    <Login switchAuthHandler={handleAuthPageToggle} />
+                ) : (
+                    <Register switchAuthHandler={handleAuthPageToggle} />
+                )}
+            </Box>
+        </Box>
     );
 };

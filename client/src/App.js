@@ -1,5 +1,5 @@
 import { Toaster } from 'react-hot-toast';
-import { ThemeProvider, CssBaseline } from '@mui/material';
+import { ThemeProvider } from '@mui/material';
 import darkTheme from './theme';
 
 export const App = ({ children }) => {

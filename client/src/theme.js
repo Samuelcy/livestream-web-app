@@ -4,7 +4,7 @@ const customTheme = createTheme({
     palette: {
         mode: 'dark',
         primary: {
-            main: '#185ADB', // Prim. color for headings or text
+            main: '#185ADB', // Prim. color for headings and / or text
         },
         secondary: {
             main: '#FFC947', // Sec. color
