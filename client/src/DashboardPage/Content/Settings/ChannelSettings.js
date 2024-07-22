@@ -10,6 +10,7 @@ import {
     validateDescription,
 } from "../../../shared/validators";
 import { Input } from "../../../shared/components";
+import { Box, Button } from "@mui/material";
 
 const inputs = [
     {
@@ -121,7 +122,17 @@ export const ChannelSettings = ({ settings, saveSettings }) => {
         !formState.avatarUrl.isValid;
 
     return (
-        <form className="settings-form">
+        <Box
+            component="form"
+            sx={{
+                display: "flex",
+                flexDirection: "column",
+                gap: 2,
+
+                margin: "auto", // Center the form horizontally
+                mt: 4, // Optional: add top margin
+            }}
+        >
             {inputs.map((input) => (
                 <Input
                     key={input.field}
@@ -136,9 +147,14 @@ export const ChannelSettings = ({ settings, saveSettings }) => {
                     textarea={input.textarea}
                 />
             ))}
-            <button onClick={handleFormSubmit} disabled={isSubmitButtonDisabled}>
+            <Button
+                variant="contained"
+                color="primary"
+                onClick={handleFormSubmit}
+                disabled={isSubmitButtonDisabled}
+            >
                 Save Changes
-            </button>
-        </form>
+            </Button>
+        </Box>
     );
 };

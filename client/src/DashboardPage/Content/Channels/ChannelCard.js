@@ -1,11 +1,12 @@
 import React from 'react';
+import { Box, Typography } from "@mui/material";
 
 const imageUrl = 'https://media.istockphoto.com/id/1334436084/photo/top-down-view-of-colorful-illuminated-gaming-accessories-laying-on-table.jpg?s=612x612&w=0&k=20&c=E9xnbAZoBS5LlUX0q-zxT_3m6gEZpyB2k51_U4LLMNs='
 
 const ChannelAvatar = ({ url }) => {
     return (
         <div className="channels-avatar-container">
-            <img src={url || imageUrl} width="100%" height="100%" />
+            <img className="avatar-image" src={url || imageUrl} alt="Channel Avatar" />
         </div>
     );
 };
@@ -21,17 +22,35 @@ export const ChannelCard = ({
     const handleNavigate = () => {
         navigateToChannelHandler(id);
     };
+
     return (
-        <div className="channels-card" onClick={handleNavigate}>
+        <Box
+            className="channels-card"
+            onClick={handleNavigate}
+            sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                backgroundColor: 'background.paper',
+                p: 1,
+                boxShadow: 1,
+                cursor: 'pointer',
+                '&:hover': {
+                    backgroundColor: 'secondary.main',
+                },
+            }}
+        >
             <ChannelAvatar url={avatarUrl} />
-            <span className="channels-card-title">{title}</span>
-            <span className="channels-card-text">{username}</span>
-            <span
-                className="channels-card-text"
-                style={{ color: isOnline ? "green" : "red" }}
-            >
-                {isOnline ? "Online" : "Offline"}
-            </span>
-        </div>
+            <Box sx={{ ml: 2 }}>
+                <Typography variant="subtitle1" sx={{ fontWeight: 'bold', mb: 0.5 }}>
+                    {title}
+                </Typography>
+                <Typography variant="body2" sx={{ mb: 0.5 }}>
+                    {username}
+                </Typography>
+                <Typography variant="body2" sx={{ color: isOnline ? "green" : "red" }}>
+                    {isOnline ? "Online" : "Offline"}
+                </Typography>
+            </Box>
+        </Box>
     );
 };
