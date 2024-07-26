@@ -104,8 +104,11 @@ export const Login = ({ switchAuthHandler }) => {
                     {isLoading ? 'Logging in...' : 'Log in'}
                 </Button>
             </form>
-            <Typography variant="body2" color="text.secondary" sx={{ mt: 2 }} >
-                Don't have an account? <span onClick={switchAuthHandler} >Please sign up</span>
+            <Typography variant="body2" color="text.secondary" sx={{ mt: 2 }}>
+                Don't have an account?{' '}
+                <Button variant="text" color="primary" onClick={switchAuthHandler}>
+                    Please sign up
+                </Button>
             </Typography>
         </Box>
     );
