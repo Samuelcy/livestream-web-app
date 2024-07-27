@@ -5,12 +5,13 @@ import { Chat } from "./Chat";
 import { ChannelDescription } from "./ChannelDescription";
 import { useChannelDetails } from "../../../shared/hooks";
 import { LoadingSpinner } from "../../../shared/components";
+import { Box, Typography } from "@mui/material";
 
 export const Stream = ({ streamUrl }) => {
     return (
-        <div className="channel-video-container">
+        <Box sx={{ width: '100%', height: '100%', position: 'relative' }}>
             <ReactFlvPlayer width="100%" height="100%" url={streamUrl} />
-        </div>
+        </Box>
     );
 };
 
@@ -29,14 +30,14 @@ export const ChannelView = ({ getChannels }) => {
     }
 
     return (
-        <div className="channel-container">
-            <div className="channel-video-description-section">
+        <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', mt: 3 }}>
+            <Box sx={{ width: '100%', mb: 3 }}>
                 {channelDetails.isOnline ? (
                     <Stream streamUrl={channelDetails.streamUrl} />
                 ) : (
-                    <div className="channel-offline-placeholder">
-                        <span>Channel is offline</span>
-                    </div>
+                    <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%', padding: 1 }}>
+                        <Typography variant="h6">Channel is offline</Typography>
+                    </Box>
                 )}
                 <ChannelDescription
                     channelId={channelDetails.id}
@@ -45,8 +46,8 @@ export const ChannelView = ({ getChannels }) => {
                     username={channelDetails.username}
                     getChannels={getChannels}
                 />
-            </div>
-            <Chat channelId={channelDetails.id}/>
-        </div>
+            </Box>
+            <Chat channelId={channelDetails.id} />
+        </Box>
     );
 };

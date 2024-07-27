@@ -1,17 +1,20 @@
 import React from "react";
+import { Box, Typography, Button } from "@mui/material";
 import { useUserDetails, useFollowChannel } from "../../../shared/hooks";
 
 const FollowButton = ({ channelId, getChannels }) => {
     const { followChannel } = useFollowChannel();
 
     const handleFollowChannel = () => {
-        followChannel(channelId, getChannels)
-    }
+        followChannel(channelId, getChannels);
+    };
 
-    return <button onClick={handleFollowChannel} className="channel-follow-button">Follow</button>
-}
-
-
+    return (
+        <Button variant="contained" color="primary" onClick={handleFollowChannel}>
+            Follow
+        </Button>
+    );
+};
 
 export const ChannelDescription = ({
     username,
@@ -24,17 +27,23 @@ export const ChannelDescription = ({
     const { isLogged } = useUserDetails();
 
     return (
-        <div className="channel-description-container">
-            <span className="channel-description-title">{username}</span>
-            <span>
+        <Box sx={{ padding: 2, border: '1px solid', borderColor: 'divider', borderRadius: 1 }}>
+            <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                <Typography variant="h6" component="div" sx={{ fontWeight: 'bold' }}>
+                    {username}
+                </Typography>
                 {isLogged && (
-                    <FollowButton className="channel-follow-button" channelId={channelId} getChannels={getChannels} />
+                    <FollowButton channelId={channelId} getChannels={getChannels} />
                 )}
-            </span>
-            <span className="channel-description-subtitle">{title}</span>
-            <div className="channel-description-box">
-                <span className="channel-description">{description}</span>
-            </div>
-        </div>
+            </Box>
+            <Box sx={{ mt: 1 }}>
+                <Typography variant="subtitle1" component="div">
+                    {title}
+                </Typography>
+                <Typography variant="body1" component="div" sx={{ mt: 1 }}>
+                    {description}
+                </Typography>
+            </Box>
+        </Box>
     );
 };

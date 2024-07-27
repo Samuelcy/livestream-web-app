@@ -1,49 +1,31 @@
 import React from "react";
-// import { useNavigate } from 'react-router-dom';
-
-// const followedChannels = [
-//     {
-//         id: 1,
-//         username: 'Martin',
-//         isOnline: false,
-//     },
-//     {
-//         id: 2,
-//         username: 'Marta',
-//         isOnline: true,
-//     },
-//     {
-//         id: 3,
-//         username: 'Jack',
-//         isOnline: false,
-//     },
-
-// ]
+import { Box, Typography, Divider } from "@mui/material";
 
 export const Sidebar = ({ channels }) => {
-
-    // const navigate = useNavigate();
-
-    // const handleNavigateToChannel = (id) => {
-    //     navigate(`/channel/${id}`);
-    // }
-
     // Returns empty sidebar if user isn't following channesl
     if (!channels) {
         return null;
     }
 
-    return <div className="sidebar-container">
-        <span className="sidebar-title">For you</span>
-        <span className="sidebar-subtitle">FOLLOWED CHANNELS</span>
-        {channels?.map((channel) => {
-            return (
-                // <div key={channel.id} className='sidebar-list-item' onClick={() => handleNavigateToChannel(channel.id)}> 
-                <div key={channel.id} className='sidebar-list-item'>
-                    <span className="sidebar-list-username">{channel.username}</span>
-                    <span className="sidebar-list-status" style={{ color: channel.isOnline ? 'green' : 'red' }}>{channel.isOnline ? "Online" : "Offline"}</span>
-                </div>
-            );
-        })}
-    </div>
-}
+    return (
+        <Box sx={{ height: '100vh', backgroundColor: 'background.paper', color: 'text.primary' }}>
+            <Typography sx={{ paddingTop: 10, paddingLeft: 2 }} variant="h6" gutterBottom>
+                For you
+            </Typography>
+            <Divider sx={{ marginBottom: 2 }} />
+            <Typography sx={{ paddingLeft: 2 }} variant="h6" gutterBottom>
+                FOLLOWED CHANNELS
+            </Typography>
+            {channels.map((channel) => (
+                <Box key={channel.id} sx={{ display: 'flex', justifyContent: 'space-between', padding: 2 }}>
+                    <Typography variant="body1">
+                        {channel.username}
+                    </Typography>
+                    <Typography variant="body1" sx={{ color: channel.isOnline ? 'green' : 'red' }}>
+                        {channel.isOnline ? "Online" : "Offline"}
+                    </Typography>
+                </Box>
+            ))}
+        </Box>
+    );
+};

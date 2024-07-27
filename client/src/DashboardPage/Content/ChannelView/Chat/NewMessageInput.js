@@ -1,11 +1,12 @@
 import React, { useState } from "react";
+import { Box, TextField } from "@mui/material";
 
 export const NewMessageInput = ({ sendMessage }) => {
     const [messageContent, setMessageContent] = useState("");
 
     const handleValueChange = (e) => {
         setMessageContent(e.target.value);
-    }
+    };
 
     const handleSendMessage = () => {
         // Send message to the server
@@ -13,24 +14,26 @@ export const NewMessageInput = ({ sendMessage }) => {
             sendMessage(messageContent);
         }
         // Rests input value after sending message
-        setMessageContent("")
-    }
+        setMessageContent("");
+    };
 
     const handleKeyPress = (e) => {
         if (e.key === "Enter") {
             handleSendMessage();
         }
-    }
+    };
 
-    console.log(messageContent);
-
-    return <div className="chat-message-input-container">
-        <input
-            className="chat-message-input"
-            placeholder="Type message..."
-            value={messageContent}
-            onChange={handleValueChange}
-            onKeyDown={handleKeyPress}
-        />
-    </div>
-}
+    return (
+        <Box sx={{ display: 'flex', alignItems: 'center', mt: 2 }}>
+            <TextField
+                variant="outlined"
+                fullWidth
+                placeholder="Type message..."
+                value={messageContent}
+                onChange={handleValueChange}
+                onKeyDown={handleKeyPress}
+                sx={{ bgcolor: 'background.paper', borderRadius: 1, boxShadow: 1 }}
+            />
+        </Box>
+    );
+};
